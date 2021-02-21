@@ -23,6 +23,8 @@ public class App {
         
         System.out.println(testCustomer);
         System.out.println(testCustomer2);
+        
+        System.out.println("test");
     }
     
 }
