@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Aung Nay
@@ -22,7 +24,7 @@ public class Loan {
     
     /**
      *
-     * @param loantype Sets the loan type of the loan.
+     * @param loanType Sets the loan type of the loan.
      * @param principal Sets the principal amount of the loan.
      * @param secured Sets if the loan is secured.
      * @param loanTerm Sets the length of the loan term.
@@ -32,6 +34,7 @@ public class Loan {
         this.principal = principal;
         this.secured = secured;
         this.loanTerm = loanTerm;
+        setLoanTypeValue(); //set the loan values based on loan type.
     }
     
     /**
@@ -51,45 +54,47 @@ public class Loan {
      * Set the correct rates based on the loan type.
      * 
      */
-    public void setLoanTypeValue() {
+    public final void setLoanTypeValue() {
+        double interestRr = 0;
     switch(loanType){
-        
-        default:
-            System.out.println("");
-            double interestRr = .05;
-            computeLoanCalculation(interestRr);
-            break;
-        
         case Personal:
-            System.out.println("Personal Loan");
+            //System.out.println("Personal Loan");
             interestRr = .04;
             computeLoanCalculation(interestRr); 
             break;
 
         case Business:
-            System.out.println("Business Loan");
+            //System.out.println("Business Loan");
             interestRr = .045; 
             computeLoanCalculation(interestRr); 
             break;
 
         case Vehicle: 
-            System.out.println("Vehicle Loan");
+            //System.out.println("Vehicle Loan");
             interestRr = .052; 
             computeLoanCalculation(interestRr);
             break;
             
         case Renovation:
-            System.out.println("Vehicle Loan");
+            //System.out.println("Vehicle Loan");
             interestRr = .03; 
             computeLoanCalculation(interestRr);
             break;
             
         case Project:
-            System.out.println("Vehicle Loan");
+            //System.out.println("Vehicle Loan");
             interestRr = .07; 
             computeLoanCalculation(interestRr);
             break;
+            
+        default:
+            //System.out.println("");
+            interestRr = .05;
+            computeLoanCalculation(interestRr);
+            break;
         }
+    
+    
     }
     
     /**
@@ -203,7 +208,8 @@ public class Loan {
      */
     public double calculateApr() {
         double top = (getFee() + getInterest())/ getPrincipal();
-        double bottom = (top/getLoanTerm()) * 365 * 100; //one year, into percentage value
+        //System.out.println(top);
+        double bottom = (top/getLoanTerm()) * 365; //one year, into percentage value
         return bottom;
     }
     
@@ -234,14 +240,15 @@ public class Loan {
     
     @Override
     public String toString() {
+        DecimalFormat df2 = new DecimalFormat("#.##");
         String text = "Loan Info:\n" + 
             getLoanType() + "\n" +
             "Secured: " + isSecured() + "\n" +
             "Principal: " + getPrincipal() + "\n" +
             "Interest Rate: " + getInterestRate() + "\n" +
             "Loan Term: " + getLoanTerm() + "\n" +
-            "Fee: " + getFee() + "\n" +
-            "APR: " + getApr();
+            "Fee: " + df2.format(getFee()) + "\n" +
+            "APR: " + df2.format(getApr());
         return text;
     }
     

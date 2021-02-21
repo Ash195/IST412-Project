@@ -11,6 +11,7 @@ public class Customer {
     private String lastName;
     private String email;
     private String phoneNumber;
+    //private double creditScore; maybe hashed
     
     /**
      * 
