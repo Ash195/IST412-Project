@@ -1,122 +1,131 @@
 package Model;
 
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  *
  * @author Kelvin
  */
 public class Customer {
     
-    private String username;
-    private String password;
+    private long custID;
+    private String firstName;
+    private String lastName;
     private String email;
     private String phoneNumber;
-    private int customerID;
-    private ArrayList<Account> accounts;
     
     /**
-     *
-     * @param user
-     * @param pass
+     * 
+     *  This is the default constructor for the Customer class.
+     */
+    public Customer(){
+        
+    }
+    
+    
+    /**
+     * @param id
+     * @param first
+     * @param last
      * @param em
      * @param phone
-     */
-    public Customer(String user, String pass, String em, String phone) {
+     * 
+     * This is the constructor with input values provided. 
+     */    
+    public Customer(long id, String first, String last, String em, String phone) {
         
-        username = user;
-        password = pass;
+        custID = id; //will be auto generated
+        firstName = first;
+        lastName = last;
         email = em;
         phoneNumber = phone;
-        customerID = 123456;
-        accounts = new ArrayList<Account>();
     }
     
     /**
-     *
-     * @param name
-     * @param bal
+     * Returns the customer's first name.
+     * @return A String representing the customer's first name.
      */
-    public void addNewAccount(String name, double bal) {
-        Account newAcc = new Account(name, bal);
-        getAccounts().add(newAcc);
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
-     * @return the username
+     * Sets the customer's first name.
+     * @param firstName Sets the customer's first name.
      */
-    public String getUsername() {
-        return username;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     /**
-     * @param username the username to set
+     * Returns the customer's last name.
+     * @return A String representing the customer's first name.
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public String getLastName() {
+        return lastName;
     }
 
     /**
-     * @return the password
+     * Sets the customer's last name.
+     * @param lastName Sets the customer's last name.
      */
-    public String getPassword() {
-        return password;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return the customer's email
+     * Returns the customer's email.
+     * @return A String representing the customer's email.
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * @param email the email to set
+     * Sets the customer's email.
+     * @param email Sets the customer's email.
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * @return the customer ID
+     * Returns the customer ID of the customer.
+     * @return A long representing the customer ID.
      */
-    public int getCustomerID() {
-        return customerID;
+    public long getCustomerID() {
+        return custID;
     }
 
     /**
-     * @return the accounts
+     * Returns the phone number of the customer.
+     * @return A String representing the  customer's phone number.
      */
-    public ArrayList<Account> getAccounts() {
-        return accounts;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     /**
-     * @param accounts the accounts to set
+     * Sets the customer's phone number.
+     * @param phoneNumber Sets the customer's phone number.
      */
-    public void setAccounts(ArrayList<Account> accounts) {
-        this.accounts = accounts;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
+    
+    
     /**
-     *
-     * @return
+     *  
+     * Returns the customer's information.
+     * @return A String of customer's information.
      */
+    @Override
     public String toString() {
         
-        String text = "Customer: " + username + "\n";
-        for(int i = 0; i < accounts.size(); i++) {
-            text += accounts.get(i).toString();
-            text += "\n";
-        }
+        String text = "Customer Info:\n" + 
+                getCustomerID() + "\n" +
+                getFirstName() + " " + getLastName() + "\n" +
+                getEmail() + "\n" +
+                getPhoneNumber() + "\n";
         return text;
     }
 }
