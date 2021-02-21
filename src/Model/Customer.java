@@ -3,6 +3,10 @@ package Model;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Kelvin
+ */
 public class Customer {
     
     private String username;
@@ -12,6 +16,13 @@ public class Customer {
     private int customerID;
     private ArrayList<Account> accounts;
     
+    /**
+     *
+     * @param user
+     * @param pass
+     * @param em
+     * @param phone
+     */
     public Customer(String user, String pass, String em, String phone) {
         
         username = user;
@@ -22,6 +33,11 @@ public class Customer {
         accounts = new ArrayList<Account>();
     }
     
+    /**
+     *
+     * @param name
+     * @param bal
+     */
     public void addNewAccount(String name, double bal) {
         Account newAcc = new Account(name, bal);
         getAccounts().add(newAcc);
@@ -90,6 +106,10 @@ public class Customer {
         this.accounts = accounts;
     }
     
+    /**
+     *
+     * @return
+     */
     public String toString() {
         
         String text = "Customer: " + username + "\n";

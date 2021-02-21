@@ -15,9 +15,11 @@ public class Account {
     private double currentBalance;
     private ArrayList<Transaction> transactions;
     
-    /*
-    *   This is the param constructor for Account class
-    */
+    /**
+     *
+     * @param name
+     * @param currentBalance
+     */
     public Account(String name, double currentBalance){
         this.name = name;
         this.currentBalance = currentBalance;
@@ -32,12 +34,20 @@ public class Account {
         transactions = new ArrayList<Transaction>();
     }
     
+    /**
+     *
+     * @param bal
+     */
     public void deposit(double bal) {
-        currentBalance += bal;
+        setCurrentBalance(getCurrentBalance() + bal);
     }
     
+    /**
+     *
+     * @param bal
+     */
     public void withdraw(double bal) {
-        currentBalance -= bal;
+        setCurrentBalance(getCurrentBalance() - bal);
     }
     
     /**
@@ -82,6 +92,10 @@ public class Account {
         this.transactions = transactions;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString() {
         return "Account: " + name + "\nCurrent Balance: " + currentBalance;
     }

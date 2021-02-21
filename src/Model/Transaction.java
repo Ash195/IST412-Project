@@ -13,10 +13,13 @@ public class Transaction {
     private Account sender;
     private Account receiver;
     private double balance;
-    
-    /*
-    *    This is the param constructor for Account class
-    */
+
+    /**
+     *
+     * @param sender
+     * @param receiver
+     * @param balance
+     */
     public Transaction(Account sender, Account receiver, double balance){
         this.sender = sender;
         this.receiver = receiver;
@@ -24,6 +27,7 @@ public class Transaction {
         
         adjustBalance();
     }
+    
     /*
     *    This is the default constructor for Account class
     */
@@ -33,9 +37,12 @@ public class Transaction {
         this.balance = 0.0;
     }
     
+    /**
+     *   This adjusts the balances of the appropriate accounts
+     */
     public void adjustBalance() {
-        sender.withdraw(balance);
-        receiver.deposit(balance);
+        getSender().withdraw(balance);
+        getReceiver().deposit(balance);
     }
 
     /**
