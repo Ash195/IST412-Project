@@ -32,6 +32,14 @@ public class Account {
         transactions = new ArrayList<Transaction>();
     }
     
+    public void deposit(double bal) {
+        currentBalance += bal;
+    }
+    
+    public void withdraw(double bal) {
+        currentBalance -= bal;
+    }
+    
     /**
      * @return the name
      */
@@ -74,4 +82,7 @@ public class Account {
         this.transactions = transactions;
     }
 
+    public String toString() {
+        return "Account: " + name + "\nCurrent Balance: " + currentBalance;
+    }
 }

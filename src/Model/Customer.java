@@ -10,6 +10,7 @@ public class Customer {
     private String email;
     private String phoneNumber;
     private int customerID;
+    private ArrayList<Account> accounts;
     
     public Customer(String user, String pass, String em, String phone) {
         
@@ -18,6 +19,12 @@ public class Customer {
         email = em;
         phoneNumber = phone;
         customerID = 123456;
+        accounts = new ArrayList<Account>();
+    }
+    
+    public void addNewAccount(String name, double bal) {
+        Account newAcc = new Account(name, bal);
+        getAccounts().add(newAcc);
     }
 
     /**
@@ -67,5 +74,29 @@ public class Customer {
      */
     public int getCustomerID() {
         return customerID;
+    }
+
+    /**
+     * @return the accounts
+     */
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
+
+    /**
+     * @param accounts the accounts to set
+     */
+    public void setAccounts(ArrayList<Account> accounts) {
+        this.accounts = accounts;
+    }
+    
+    public String toString() {
+        
+        String text = "Customer: " + username + "\n";
+        for(int i = 0; i < accounts.size(); i++) {
+            text += accounts.get(i).toString();
+            text += "\n";
+        }
+        return text;
     }
 }

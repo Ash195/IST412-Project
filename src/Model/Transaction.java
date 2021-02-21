@@ -21,6 +21,8 @@ public class Transaction {
         this.sender = sender;
         this.receiver = receiver;
         this.balance = balance;
+        
+        adjustBalance();
     }
     /*
     *    This is the default constructor for Account class
@@ -29,6 +31,11 @@ public class Transaction {
         this.sender = new Account();
         this.receiver = new Account();
         this.balance = 0.0;
+    }
+    
+    public void adjustBalance() {
+        sender.withdraw(balance);
+        receiver.deposit(balance);
     }
 
     /**
