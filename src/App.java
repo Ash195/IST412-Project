@@ -1,6 +1,7 @@
 import Model.Account;
 import Model.Customer;
 import Model.Transaction;
+import Model.UserData;
 
 
 public class App {
@@ -16,8 +17,9 @@ public class App {
         Customer testCustomer2 = new Customer(1254555, "Will", "Smith", "testemail2@gmail.com", "234-567-8901");
         System.out.println(testCustomer2.toString());
         
-        System.out.println(testCustomer);
-        System.out.println(testCustomer2);
+        UserData account1 = UserData.getInstance();
+        account1.registerUser("Jakieee", "Meaodf");
+        account1.isLoginCorrect("Jakieee", "Meaoddf");
         
         //Transaction testTransaction = new Transaction(testCustomer.getAccounts().get(0), testCustomer2.getAccounts().get(0), 72.50);
 
