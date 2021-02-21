@@ -10,21 +10,17 @@ public class App {
      */
     public static void main(String[] args) {
         
-        Customer testCustomer = new Customer("TestUser", "TestPassword", "testemail@gmail.com", "123-456-7890");
-        testCustomer.addNewAccount("Checkings", 500.00);
+        Customer testCustomer = new Customer(125445, "John", "Doe", "testemail@gmail.com", "123-456-7890");
+        System.out.println(testCustomer.toString());
         
-        Customer testCustomer2 = new Customer("TestUser2", "TestPassword2", "testemail2@gmail.com", "234-567-8901");
-        testCustomer2.addNewAccount("Checkings", 1250.00);
-        
-        System.out.println(testCustomer);
-        System.out.println(testCustomer2);
-        
-        Transaction testTransaction = new Transaction(testCustomer.getAccounts().get(0), testCustomer2.getAccounts().get(0), 72.50);
+        Customer testCustomer2 = new Customer(1254555, "Will", "Smith", "testemail2@gmail.com", "234-567-8901");
+        System.out.println(testCustomer2.toString());
         
         System.out.println(testCustomer);
         System.out.println(testCustomer2);
         
-        System.out.println("test");
+        //Transaction testTransaction = new Transaction(testCustomer.getAccounts().get(0), testCustomer2.getAccounts().get(0), 72.50);
+
     }
     
 }
