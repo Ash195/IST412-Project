@@ -11,36 +11,66 @@ package Model;
  */
 public class Transaction {
     private Account sender;
-    private Account reciever;
+    private Account receiver;
     private double balance;
-    public Transaction(Account sender, Account reciever, double balance){
+    
+    /*
+    *    This is the param constructor for Account class
+    */
+    public Transaction(Account sender, Account receiver, double balance){
         this.sender = sender;
-        this.reciever = reciever;
+        this.receiver = receiver;
         this.balance = balance;
     }
+    /*
+    *    This is the default constructor for Account class
+    */
+    public Transaction(){
+        this.sender = new Account();
+        this.receiver = new Account();
+        this.balance = 0.0;
+    }
 
+    /**
+     * @return the sender
+     */
     public Account getSender() {
         return sender;
     }
 
+    /**
+     * @param sender the sender to set
+     */
     public void setSender(Account sender) {
         this.sender = sender;
     }
 
-    public Account getReciever() {
-        return reciever;
+    /**
+     * @return the receiver
+     */
+    public Account getReceiver() {
+        return receiver;
     }
 
-    public void setReciever(Account reciever) {
-        this.reciever = reciever;
+    /**
+     * @param receiver the receiver to set
+     */
+    public void setReceiver(Account receiver) {
+        this.receiver = receiver;
     }
 
+    /**
+     * @return the balance
+     */
     public double getBalance() {
         return balance;
     }
 
+    /**
+     * @param balance the balance to set
+     */
     public void setBalance(double balance) {
         this.balance = balance;
-    } 
-    
+    }
+
 }
