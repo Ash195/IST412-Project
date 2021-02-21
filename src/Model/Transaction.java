@@ -41,8 +41,8 @@ public class Transaction {
      *   This adjusts the balances of the appropriate accounts
      */
     public void adjustBalance() {
-        getSender().withdraw(balance);
-        getReceiver().deposit(balance);
+        getSender().withdraw(getBalance());
+        getReceiver().deposit(getBalance());
     }
 
     /**
