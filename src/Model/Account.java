@@ -49,12 +49,15 @@ public class Account {
         while(accountCreated == false){
             String userName = s.next();
             String passWord = s.next();
-            System.out.println(udata.isUserNameTaken(userName));
+            System.out.println("");
+            System.out.println("Username " + userName + " is not taken.");
             if(!udata.isUserNameTaken(userName)){
                 udata.registerUser(userName, passWord);
                 //will add more password restriction and username restriction
                 System.out.println("Account created successfully");
                 accountCreated = true;
+                
+                //will get edited to be more secured
                 username = userName;
             } 
             else{
@@ -73,9 +76,11 @@ public class Account {
         return udata.isLoginCorrect(user, pass);
     }
     
+    //method to add loan will go here.
+    
     @Override
     public String toString(){
-        String text = 
+        String text = "Username: " + username + "\n" + customerInfo.toString();
         return text;
     }
 }

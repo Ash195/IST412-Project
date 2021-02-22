@@ -36,7 +36,7 @@ public class UserData {
     private int getSimpleHash(String input){
         final int prime = 31;
         int result = prime * hashCode() + (int)input.hashCode();
-        System.out.println(result);
+        //System.out.println(result);
         return result;
     }
 
@@ -119,7 +119,14 @@ public class UserData {
         String saltedPassword = pass + salt;
         int passwordHash = getSimpleHash(saltedPassword);
         int storedPasswordHash = userPasswordMap.get(user);
-        System.out.println(passwordHash == storedPasswordHash);
+        //System.out.println(passwordHash == storedPasswordHash);
         return passwordHash == storedPasswordHash;
-}
+    }
+    
+    
+    // checking the Map
+    private void printMap(){
+        userPasswordMap.forEach((key, value) -> System.out.println(key + " | " + value));
+    } 
+    
 }
