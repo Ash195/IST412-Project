@@ -1,3 +1,5 @@
+package main;
+
 import Model.Account;
 import Model.Customer;
 import Model.Loan;

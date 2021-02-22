@@ -1,7 +1,9 @@
+/**
+ */
 package Model;
 
 /**
- *
+ * Customer class with customer personal information
  * @author Kelvin
  */
 public class Customer {
@@ -23,11 +25,11 @@ public class Customer {
     
     
     /**
-     * @param id
-     * @param first
-     * @param last
-     * @param em
-     * @param phone
+     * @param id Set the customer id.
+     * @param first Set the customer first name.
+     * @param last Set the customer last name.
+     * @param em Set the customer email.
+     * @param phone Set the customer phone.
      * 
      * This is the constructor with input values provided. 
      */    

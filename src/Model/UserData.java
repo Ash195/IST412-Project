@@ -1,4 +1,5 @@
-/*
+/**
+ * 
  *
  */
 package Model;
@@ -9,7 +10,7 @@ import java.util.Objects;
 
 
 /**
- *
+ * Algorithm for user login security, uses hash function.
  * @author Aung Nay
  * Code reference from 
  * https://happycoding.io/tutorials/java-server/secure-password-storage
