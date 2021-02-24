@@ -21,4 +21,5 @@ Customer1:
 	username: Jakieee
 	password: Meaodf@@
 
+JavaDoc API located dist folder of root.
 The login verfication test case is used in the main method. Additional classes and methods are added, however, they are lacking the javaDOC at the moment, so they will not be included the Feb 21, 2021 module update.
