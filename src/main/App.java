@@ -5,6 +5,7 @@ import Model.Customer;
 import Model.Loan;
 import Model.LoanType;
 import Model.UserData;
+import java.util.Arrays;
 
 
 public class App {
