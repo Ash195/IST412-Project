@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,15 +42,15 @@ public class UserDataTest {
     /**
      * Test of getInstance method, of class UserData.
      */
-    @Test
-    public void testGetInstance() {
-        System.out.println("getInstance");
-        UserData expResult = null;
-        UserData result = UserData.getInstance();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGetInstance() {
+//        System.out.println("getInstance");
+//        UserData expResult = new UserData();
+//        UserData result = UserData.getInstance();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        //fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of hashCode method, of class UserData.
@@ -56,27 +58,12 @@ public class UserDataTest {
     @Test
     public void testHashCode() {
         System.out.println("hashCode");
-        UserData instance = null;
-        int expResult = 0;
+        UserData instance = UserData.getInstance();;
+        int expResult = 7;
         int result = instance.hashCode();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of equals method, of class UserData.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object obj = null;
-        UserData instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -85,13 +72,19 @@ public class UserDataTest {
     @Test
     public void testIsUserNameTaken() {
         System.out.println("isUserNameTaken");
-        String user = "";
-        UserData instance = null;
-        boolean expResult = false;
-        boolean result = instance.isUserNameTaken(user);
+        String user = "Sammyboy299";
+        String pass = "2658421fkf";
+        UserData instance = UserData.getInstance();
+        instance.registerUser(user, pass);
+        boolean expResult = true;
+        boolean result = instance.isUserNameTaken("Sammyboy299");
+        assertEquals(expResult, result);
+        
+        expResult = false;
+        result = instance.isUserNameTaken("Sammybodddy299");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -100,12 +93,19 @@ public class UserDataTest {
     @Test
     public void testRegisterUser() {
         System.out.println("registerUser");
-        String user = "";
-        String pass = "";
-        UserData instance = null;
+        String user = "Sammyboy99";
+        String pass = "2658421kf";
+        UserData instance = UserData.getInstance();
         instance.registerUser(user, pass);
+        boolean expResult = true;
+        boolean result = instance.isLoginCorrect("Sammyboy99", "2658421kf");
+        assertEquals(expResult, result);
+        
+        expResult = false;
+        result = instance.isLoginCorrect("Saannyy32", "2658421kf");
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -114,14 +114,19 @@ public class UserDataTest {
     @Test
     public void testIsLoginCorrect() {
         System.out.println("isLoginCorrect");
-        String user = "";
-        String pass = "";
-        UserData instance = null;
+        String user = "Sammyssboy99";
+        String pass = "265842fdsfs1kf";
+        UserData instance = UserData.getInstance();;
+        instance.registerUser(user, pass);
         boolean expResult = false;
-        boolean result = instance.isLoginCorrect(user, pass);
+        boolean result = instance.isLoginCorrect("Sammyboy99", "265421kf");
+        assertEquals(expResult, result);
+        
+        expResult = true;
+        result = instance.isLoginCorrect("Sammyssboy99", "265842fdsfs1kf");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
