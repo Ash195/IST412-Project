@@ -139,7 +139,7 @@ public class Loan {
      * Sets the loan principal amount.
      * @param principal Sets the loan principal amount.
      */
-    public void getPrincipal(double principal) {
+    public void setPrincipal(double principal) {
         this.principal = principal;
     }
 
