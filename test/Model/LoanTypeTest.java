@@ -5,6 +5,12 @@
  */
 package Model;
 
+import static Model.LoanType.Business;
+import static Model.LoanType.Personal;
+import static Model.LoanType.Project;
+import static Model.LoanType.Renovation;
+import static Model.LoanType.Vehicle;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,11 +49,11 @@ public class LoanTypeTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        LoanType[] expResult = null;
+        LoanType[] expResult = {Personal, Business, Vehicle, Renovation, Project};
         LoanType[] result = LoanType.values();
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -56,12 +62,16 @@ public class LoanTypeTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        LoanType expResult = null;
+        String name = "Personal";
+        LoanType expResult = Personal;
         LoanType result = LoanType.valueOf(name);
         assertEquals(expResult, result);
+        name = "Vehicle";
+        expResult = Vehicle;
+        result = LoanType.valueOf(name);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
