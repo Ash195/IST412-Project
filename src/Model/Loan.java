@@ -205,10 +205,16 @@ public class Loan {
      * @return A double representing the loan APR.
      */
     public double calculateApr() {
-        double top = (getFee() + getInterest())/ getPrincipal();
-        //System.out.println(top);
-        double bottom = (top/getLoanTerm()) * 365; //one year, into percentage value
-        return bottom;
+        double apr;
+        if(getPrincipal() == 0){
+            apr = 0;
+        }else{
+            double top = (getFee() + getInterest())/ getPrincipal();
+            //System.out.println(top);
+            apr = (top/getLoanTerm()) * 365; //one year, into percentage value
+            
+        }
+        return apr;
     }
     
     

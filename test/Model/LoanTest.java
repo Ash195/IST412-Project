@@ -227,10 +227,10 @@ public class LoanTest {
     public void testSetApr() {
         System.out.println("setApr");
         double apr = 0.0;
-        Loan instance = null;
+        Loan instance = new Loan(LoanType.Business, 0.0, false, 0);
         instance.setApr(apr);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -239,12 +239,12 @@ public class LoanTest {
     @Test
     public void testCalculateApr() {
         System.out.println("calculateApr");
-        Loan instance = null;
+        Loan instance = new Loan(LoanType.Business, 0.0, false, 0);
         double expResult = 0.0;
         double result = instance.calculateApr();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -253,12 +253,12 @@ public class LoanTest {
     @Test
     public void testGetApr() {
         System.out.println("getApr");
-        Loan instance = null;
+        Loan instance = new Loan(LoanType.Business, 0.0, false, 0);
         double expResult = 0.0;
         double result = instance.getApr();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -267,12 +267,12 @@ public class LoanTest {
     @Test
     public void testIsSecured() {
         System.out.println("isSecured");
-        Loan instance = null;
+        Loan instance = new Loan(LoanType.Business, 0.0, false, 0);
         boolean expResult = false;
         boolean result = instance.isSecured();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -282,10 +282,10 @@ public class LoanTest {
     public void testSetSecured() {
         System.out.println("setSecured");
         boolean secured = false;
-        Loan instance = null;
+        Loan instance = new Loan(LoanType.Business, 0.0, false, 0);
         instance.setSecured(secured);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -294,12 +294,12 @@ public class LoanTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Loan instance = null;
-        String expResult = "";
+        Loan instance = new Loan(LoanType.Business, 0.0, false, 0);
+        String expResult = "Loan Info:\nBusiness\nSecured: false\nPrincipal: 0.0\nInterest Rate: 0.045\nLoan Term: 0\nFee: 0\nAPR: 0";
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
