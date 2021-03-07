@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.text.DecimalFormat;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -226,11 +227,12 @@ public class LoanTest {
     @Test
     public void testSetApr() {
         System.out.println("setApr");
-        double apr = 0.0;
-        Loan instance = null;
-        instance.setApr(apr);
+        Loan test = new Loan(LoanType.Business, 20000, true, 365);
+        double apr = 25.0;
+        test.setApr(apr);
+        assertEquals(apr, test.getApr(), apr/100000);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -239,12 +241,13 @@ public class LoanTest {
     @Test
     public void testCalculateApr() {
         System.out.println("calculateApr");
-        Loan instance = null;
-        double expResult = 0.0;
-        double result = instance.calculateApr();
-        assertEquals(expResult, result, 0.0);
+        Loan test = new Loan(LoanType.Business, 20000, true, 365);
+        double top = (20000/12 + 20000/.045)/20000;
+        double bottom = (top/365) * 365;
+        double result = test.calculateApr();
+        assertEquals(bottom, result, bottom/100000);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -253,12 +256,12 @@ public class LoanTest {
     @Test
     public void testGetApr() {
         System.out.println("getApr");
-        Loan instance = null;
-        double expResult = 0.0;
-        double result = instance.getApr();
-        assertEquals(expResult, result, 0.0);
+        Loan test = new Loan(LoanType.Business, 20000, true, 365);
+        double expResult = test.calculateApr();
+        double result = test.getApr();
+        assertEquals(expResult, result, expResult/100000);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -267,12 +270,12 @@ public class LoanTest {
     @Test
     public void testIsSecured() {
         System.out.println("isSecured");
-        Loan instance = null;
-        boolean expResult = false;
-        boolean result = instance.isSecured();
+        Loan test = new Loan(LoanType.Business, 20000, true, 365);
+        boolean expResult = true;
+        boolean result = test.isSecured();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -281,11 +284,12 @@ public class LoanTest {
     @Test
     public void testSetSecured() {
         System.out.println("setSecured");
+        Loan test = new Loan(LoanType.Business, 20000, true, 365);
         boolean secured = false;
-        Loan instance = null;
-        instance.setSecured(secured);
+        test.setSecured(secured);
+        assertEquals(secured, test.isSecured());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -294,12 +298,19 @@ public class LoanTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Loan instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
+        Loan test = new Loan(LoanType.Business, 20000, true, 365);
+        DecimalFormat df2 = new DecimalFormat("#.##");
+        String text = "Loan Info:\n" + 
+            LoanType.Business + "\n" +
+            "Secured: " + true + "\n" +
+            "Principal: " + 20000.0 + "\n" +
+            "Interest Rate: " + 0.045 + "\n" +
+            "Loan Term: " + 365 + "\n" +
+            "Fee: " + df2.format(test.getFee()) + "\n" +
+            "APR: " + df2.format(test.getApr());
+        assertEquals(text, test.toString());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
