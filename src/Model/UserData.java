@@ -90,6 +90,31 @@ public class UserData {
         return userPasswordMap.containsKey(user);
     }
     
+    public boolean resetUserName(String oldUsername, String newUsername){
+        //printMap();
+        if(isUserNameTaken(oldUsername)) {
+            int pass = userPasswordMap.get(oldUsername);
+            int salt = userSaltMap.get(oldUsername);
+            userPasswordMap.remove(oldUsername);
+            userSaltMap.remove(oldUsername);
+            
+            if(!isUserNameTaken(newUsername)){
+                userPasswordMap.put(newUsername, pass);
+                userSaltMap.put(newUsername, salt);
+                System.out.println("Username is resetted to "+ newUsername);
+                //printMap();
+                return true;
+            } else{
+                System.out.println("Username is taken");
+                return false;
+            }
+            
+        } else{
+            System.out.println("Enter a valid username");
+            return false;
+        }
+    }
+    
     /**
      * Registers the user by adding the username and password into the map.
      * @param user Username of the user

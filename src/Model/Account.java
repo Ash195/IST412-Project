@@ -41,30 +41,28 @@ public class Account {
     
     
     
-    public void createAccount(String newUsername, String newPassword){
-        boolean accountCreated = false;
-        while(accountCreated == false){
-            System.out.println("");
-            if(!udata.isUserNameTaken(newUsername)){
-                System.out.println("Username " + newUsername + " is not taken.");
-                udata.registerUser(newUsername, newPassword);
-                //will add more password restriction and username restriction
-                System.out.println("Account created successfully");
-                accountCreated = true;
-                
-                //will get edited to be more secured
-                username = newUsername;
-            } 
-            else{
-                System.out.println("Username is taken. Try again");
-                accountCreated = false;
-            }
-        }        
+    public boolean createAccount(String newUsername, String newPassword){
+       boolean accountCreated = false;
+       System.out.println("");
+        if(!udata.isUserNameTaken(newUsername)){
+            System.out.println("Username " + newUsername + " is not taken.");
+            udata.registerUser(newUsername, newPassword);
+            //will add more password restriction and username restriction
+            System.out.println("Account created successfully");
+
+
+            //will get edited to be more secured
+            username = newUsername;
+            accountCreated = true;
+        } 
+        else{
+            System.out.println("Username is taken. Try again");
+            accountCreated = false;
+        }     
+        return accountCreated;
     }
     
-    public void setUserName(){
-        
-    }
+
     
     public boolean checkLogin(String user, String pass){
         //udata.printMap(); used to check if the login informatio matches

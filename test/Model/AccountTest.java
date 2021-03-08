@@ -44,7 +44,8 @@ public class AccountTest {
     public void testGetCustomerInfo() {
         System.out.println("getCustomerInfo");
         Account instance = new Account();
-        Customer expResult = null;
+        Customer expResult = new Customer(12225, "James", "Johnson", "jakemm@gmail.com", "26888754");
+        instance.setCustomerInfo(expResult);
         Customer result = instance.getCustomerInfo();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -57,11 +58,13 @@ public class AccountTest {
     @Test
     public void testSetCustomerInfo() {
         System.out.println("setCustomerInfo");
-        Customer customerInfo = null;
+        Customer customerInfo = new Customer(12225, "James", "Johnson", "jakemm@gmail.com", "26888754");
         Account instance = new Account();
         instance.setCustomerInfo(customerInfo);
+        Customer result = instance.getCustomerInfo();
+        assertEquals(customerInfo, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -71,22 +74,20 @@ public class AccountTest {
     public void testCreateAccount() {
         System.out.println("createAccount");
         Account instance = new Account();
-        instance.createAccount("default", "password");
+        boolean result = instance.createAccount("default", "password");
+        assertEquals(true, result);
+        result = instance.createAccount("default", "password");
+        assertEquals(false, result);
+        
+        result = instance.createAccount("another1121", "password");
+        assertEquals(true, result);
+        
+        result = instance.createAccount("another1121", "password");
+        assertEquals(false, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setUserName method, of class Account.
-     */
-    @Test
-    public void testSetUserName() {
-        System.out.println("setUserName");
-        Account instance = new Account();
-        instance.setUserName();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of checkLogin method, of class Account.

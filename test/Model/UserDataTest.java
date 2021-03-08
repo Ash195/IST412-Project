@@ -107,6 +107,22 @@ public class UserDataTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    /**
+     * Test of resetUserName method, of class UserData.
+     */
+    @Test
+    public void resetUserName() {
+        System.out.println("resetUserName");
+        String user = "Sammyboy99";
+        String pass = "2658421kf";
+        UserData instance = UserData.getInstance();
+        instance.registerUser(user, pass);
+        instance.resetUserName("Sammyboy99","Sam99");
+        boolean result = instance.isLoginCorrect("Sam99", "2658421kf");
+        boolean expResult = true;
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of isLoginCorrect method, of class UserData.
