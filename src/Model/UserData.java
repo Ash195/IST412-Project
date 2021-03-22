@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -15,7 +16,7 @@ import java.util.Objects;
  * Code reference from 
  * https://happycoding.io/tutorials/java-server/secure-password-storage
  */
-public class UserData {
+public class UserData implements Serializable{
     
     private static UserData instance = new UserData();
     /** 
@@ -83,25 +84,31 @@ public class UserData {
     
     /**
      * Returns a boolean whether the username exist inside the userPasswordMap.
-     * @param user Username of the user
+     * @param user Username of the user.
      * @return A boolean of if the username exist in the map.
      */
     public boolean isUserNameTaken(String user){
         return userPasswordMap.containsKey(user);
     }
     
-    public boolean resetUserName(String oldUsername, String newUsername){
+    /**
+     * Returns a boolean whether the username is successfully changed inside the userPasswordMap.
+     * @param oldUser Previous username of the user.
+     * @param newUser New username of the user.
+     * @return A boolean of if the username is successfully changed.
+     */
+    public boolean resetUserName(String oldUser, String newUser){
         //printMap();
-        if(isUserNameTaken(oldUsername)) {
-            int pass = userPasswordMap.get(oldUsername);
-            int salt = userSaltMap.get(oldUsername);
-            userPasswordMap.remove(oldUsername);
-            userSaltMap.remove(oldUsername);
+        if(isUserNameTaken(oldUser)) {
+            int pass = userPasswordMap.get(oldUser);
+            int salt = userSaltMap.get(oldUser);
+            userPasswordMap.remove(oldUser);
+            userSaltMap.remove(oldUser);
             
-            if(!isUserNameTaken(newUsername)){
-                userPasswordMap.put(newUsername, pass);
-                userSaltMap.put(newUsername, salt);
-                System.out.println("Username is resetted to "+ newUsername);
+            if(!isUserNameTaken(newUser)){
+                userPasswordMap.put(newUser, pass);
+                userSaltMap.put(newUser, salt);
+                System.out.println("Username is resetted to "+ newUser);
                 //printMap();
                 return true;
             } else{
@@ -117,8 +124,8 @@ public class UserData {
     
     /**
      * Registers the user by adding the username and password into the map.
-     * @param user Username of the user
-     * @param pass Password of the user
+     * @param user Username of the user.
+     * @param pass Password of the user.
      */
     public void registerUser(String user, String pass){
         int salt = getRandomSalt();
@@ -130,8 +137,8 @@ public class UserData {
     
     /**
      * Returns a boolean whether the username and password matches the key and value from the userPasswordMap.
-     * @param user Username of the user
-     * @param pass Password of the user
+     * @param user Username of the user.
+     * @param pass Password of the user.
      * @return A boolean of if the username and password matches.
      */
     public boolean isLoginCorrect(String user, String pass) {

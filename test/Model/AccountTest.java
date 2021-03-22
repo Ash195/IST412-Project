@@ -44,7 +44,7 @@ public class AccountTest {
     public void testGetCustomerInfo() {
         System.out.println("getCustomerInfo");
         Account instance = new Account();
-        Customer expResult = new Customer(12225, "James", "Johnson", "jakemm@gmail.com", "26888754");
+        Customer expResult = new Customer("James", "Johnson", "jakemm@gmail.com", "26888754");
         instance.setCustomerInfo(expResult);
         Customer result = instance.getCustomerInfo();
         assertEquals(expResult, result);
@@ -58,7 +58,7 @@ public class AccountTest {
     @Test
     public void testSetCustomerInfo() {
         System.out.println("setCustomerInfo");
-        Customer customerInfo = new Customer(12225, "James", "Johnson", "jakemm@gmail.com", "26888754");
+        Customer customerInfo = new Customer("James", "Johnson", "jakemm@gmail.com", "26888754");
         Account instance = new Account();
         instance.setCustomerInfo(customerInfo);
         Customer result = instance.getCustomerInfo();
@@ -111,7 +111,7 @@ public class AccountTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Customer c = new Customer(0, "default", "customer", "default@gmail.com", "1234567890");
+        Customer c = new Customer("default", "customer", "default@gmail.com", "1234567890");
         Account instance = new Account(c);
         instance.createAccount("admin", "password");
         String expResult = "Username: admin\nCustomer Info:\n0\ndefault customer\ndefault@gmail.com\n1234567890\n";

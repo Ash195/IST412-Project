@@ -2,13 +2,14 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  * Customer class with customer personal information
  * @author Kelvin
  */
-public class Customer {
+public class Customer implements Serializable{
     
-    private long custID;
     private String firstName;
     private String lastName;
     private String email;
@@ -33,9 +34,7 @@ public class Customer {
      * 
      * This is the constructor with input values provided. 
      */    
-    public Customer(long id, String first, String last, String em, String phone) {
-        
-        custID = id; //will be auto generated
+    public Customer(String first, String last, String em, String phone) {
         firstName = first;
         lastName = last;
         email = em;
@@ -91,14 +90,6 @@ public class Customer {
     }
 
     /**
-     * Returns the customer ID of the customer.
-     * @return A long representing the customer ID.
-     */
-    public long getCustomerID() {
-        return custID;
-    }
-
-    /**
      * Returns the phone number of the customer.
      * @return A String representing the  customer's phone number.
      */
@@ -125,7 +116,6 @@ public class Customer {
     public String toString() {
         
         String text = "Customer Info:\n" + 
-                getCustomerID() + "\n" +
                 getFirstName() + " " + getLastName() + "\n" +
                 getEmail() + "\n" +
                 getPhoneNumber() + "\n";

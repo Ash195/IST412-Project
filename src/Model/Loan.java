@@ -9,8 +9,8 @@ import java.text.DecimalFormat;
  * Loan class that calculate loan based on the loan type.
  * @author Aung Nay
  */
-public class Loan {
-    private long loanID;
+public abstract class Loan implements Cloneable{
+    private String loanID;
     private LoanType loanType;
     private double principal;
     private double interestRate; //annually
@@ -20,75 +20,58 @@ public class Loan {
     private boolean secured = false;
     private int loanTerm; //number of days
     
-    /**
-     *
-     * @param loanType Sets the loan type of the loan.
-     * @param principal Sets the principal amount of the loan.
-     * @param secured Sets if the loan is secured.
-     * @param loanTerm Sets the length of the loan term.
-     */
-    public Loan(LoanType loanType, double principal, boolean secured, int loanTerm) {
-        this.loanType = loanType;
-        this.principal = principal;
-        this.secured = secured;
-        this.loanTerm = loanTerm;
-        setLoanTypeValue(); //set the loan values based on loan type.
+//    /**
+//     *
+//     * @param loanType Sets the loan type of the loan.
+//     * @param principal Sets the principal amount of the loan.
+//     * @param secured Sets if the loan is secured.
+//     * @param loanTerm Sets the length of the loan term.
+//     */
+//    public Loan(double principal, boolean secured, int loanTerm) {
+//        //this.loanType = loanType;
+//        this.principal = principal;
+//        this.secured = secured;
+//        this.loanTerm = loanTerm; //set the loan values based on loan type.
+//    }
+    
+    public Loan(){}
+    
+    public String getLoanID() {
+        return loanID;
+    }
+
+    public void setLoanID(String loanID) {
+        this.loanID = loanID;
     }
     
     /**
      * Calculate all the necessary numbers needed for a loan based on the provided interest rate.
      * @param interestRate Sets the interest rate of the loan.
      */
-    private void computeLoanCalculation(double interestRate)
-    {
-        //method to calculate interest rate based on credit score.
-        setFee(principal/12); //example test cases for now will add formula later.
-        setInterestRate(interestRate);
-        setInterest(getPrincipal()/getInterestRate());
-        setApr(calculateApr());
-    }
+    abstract void computeLoanCalculation(double interestRate);
 
     /**
      * Set the correct rates based on the loan type.
      * 
      */
     public final void setLoanTypeValue() {
-        double interestRr = 0;
     switch(loanType){
         case Personal:
-            //System.out.println("Personal Loan");
-            interestRr = .04;
-            computeLoanCalculation(interestRr); 
             break;
 
         case Business:
-            //System.out.println("Business Loan");
-            interestRr = .045; 
-            computeLoanCalculation(interestRr); 
             break;
 
         case Vehicle: 
-            //System.out.println("Vehicle Loan");
-            interestRr = .052; 
-            computeLoanCalculation(interestRr);
             break;
             
         case Renovation:
-            //System.out.println("Vehicle Loan");
-            interestRr = .03; 
-            computeLoanCalculation(interestRr);
             break;
             
         case Project:
-            //System.out.println("Vehicle Loan");
-            interestRr = .07; 
-            computeLoanCalculation(interestRr);
             break;
             
         default:
-            //System.out.println("");
-            interestRr = .05;
-            computeLoanCalculation(interestRr);
             break;
         }
     
@@ -241,6 +224,20 @@ public class Loan {
     public void setSecured(boolean secured) {
         this.secured = secured;
     }
+    
+    public Object clone() {
+      Object clone = null;
+      
+      try {
+         clone = super.clone();
+         
+      } catch (CloneNotSupportedException e) {
+         e.printStackTrace();
+      }
+      
+      return clone;
+   }
+
     
     @Override
     public String toString() {

@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  * @author Aung Nay
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({Model.LoanTest.class, Model.LoanTypeTest.class, Model.CustomerTest.class, Model.UserDataTest.class, Model.AccountTest.class})
+@Suite.SuiteClasses({ Model.LoanTypeTest.class,  Model.UserDataTest.class, Model.AccountTest.class})
 public class ModelSuite {
 
     @BeforeClass
