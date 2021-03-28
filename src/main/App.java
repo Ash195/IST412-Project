@@ -5,6 +5,8 @@ import Model.Customer;
 import Model.Loan;
 import Model.LoanType;
 import Model.UserData;
+import View.AccountDashboard;
+import View.MainFrame;
 import java.util.Arrays;
 
 
@@ -36,6 +38,12 @@ public class App {
         System.out.println("");
         Loan loan2 = new Loan(LoanType.Personal, 1520, false, 120);
         System.out.println(loan2.toString());
+        
+        System.out.println();
+        loan1.pay(25000.0);
+        
+        MainFrame mf = new MainFrame();
+        mf.getDashboard().setUpDashboard(123456, loan1.getCurrentBalance(), (loan1.getFee()*(loan1.getApr()/100))+loan1.getFee());
         
         //Transaction testTransaction = new Transaction(testCustomer.getAccounts().get(0), testCustomer2.getAccounts().get(0), 72.50);
 

@@ -41,22 +41,19 @@ public class Account {
     
     
     
-    public void createAccount(){
-        Scanner s = new Scanner(System.in);        
+    public void createAccount(String newUsername, String newPassword){
         boolean accountCreated = false;
         while(accountCreated == false){
-            String userName = s.next();
-            String passWord = s.next();
             System.out.println("");
-            System.out.println("Username " + userName + " is not taken.");
-            if(!udata.isUserNameTaken(userName)){
-                udata.registerUser(userName, passWord);
+            if(!udata.isUserNameTaken(newUsername)){
+                System.out.println("Username " + newUsername + " is not taken.");
+                udata.registerUser(newUsername, newPassword);
                 //will add more password restriction and username restriction
                 System.out.println("Account created successfully");
                 accountCreated = true;
                 
                 //will get edited to be more secured
-                username = userName;
+                username = newUsername;
             } 
             else{
                 System.out.println("Username is taken. Try again");

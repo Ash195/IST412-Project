@@ -48,7 +48,7 @@ public class AccountTest {
         Customer result = instance.getCustomerInfo();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -71,9 +71,9 @@ public class AccountTest {
     public void testCreateAccount() {
         System.out.println("createAccount");
         Account instance = new Account();
-        instance.createAccount();
+        instance.createAccount("default", "password");
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -101,7 +101,7 @@ public class AccountTest {
         boolean result = instance.checkLogin(user, pass);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -110,12 +110,14 @@ public class AccountTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Account instance = new Account();
-        String expResult = "";
-        String result = instance.toString();
+        Customer c = new Customer(0, "default", "customer", "default@gmail.com", "1234567890");
+        Account instance = new Account(c);
+        instance.createAccount("admin", "password");
+        String expResult = "Username: admin\nCustomer Info:\n0\ndefault customer\ndefault@gmail.com\n1234567890\n";
+        String result = instance.toString();  //gives null
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

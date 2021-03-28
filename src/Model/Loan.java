@@ -19,6 +19,8 @@ public class Loan {
     private double apr;
     private boolean secured = false;
     private int loanTerm; //number of days
+    private boolean newLoan = true;
+    private LoanPayment payment;
     
     /**
      *
@@ -33,6 +35,17 @@ public class Loan {
         this.secured = secured;
         this.loanTerm = loanTerm;
         setLoanTypeValue(); //set the loan values based on loan type.
+    }
+    
+    public void pay(double amount) {
+        DecimalFormat df2 = new DecimalFormat("#.##");
+        if(newLoan) {
+            payment = new LoanPayment(principal, apr);
+            System.out.println("New balance: " + df2.format(payment.pay(amount)));
+        }
+        else {
+            System.out.println("New balance: " + df2.format(payment.pay(amount)));
+        }
     }
     
     /**
@@ -93,6 +106,10 @@ public class Loan {
         }
     
     
+    }
+    
+    public double getCurrentBalance() {
+        return payment.getTotal();
     }
     
     /**
@@ -205,10 +222,16 @@ public class Loan {
      * @return A double representing the loan APR.
      */
     public double calculateApr() {
-        double top = (getFee() + getInterest())/ getPrincipal();
-        //System.out.println(top);
-        double bottom = (top/getLoanTerm()) * 365; //one year, into percentage value
-        return bottom;
+        double apr;
+        if(getPrincipal() == 0){
+            apr = 0;
+        }else{
+            double top = (getFee() + getInterest())/ getPrincipal();
+            //System.out.println(top);
+            apr = (top/getLoanTerm()) * 365; //one year, into percentage value
+            
+        }
+        return apr;
     }
     
     
