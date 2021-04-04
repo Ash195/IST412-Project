@@ -14,6 +14,7 @@ public class Account implements Serializable{
     private Customer customerInfo;
     private final UserData udata;
     private ArrayList<Loan> loans;
+    private double balance;
     
     /**
      * This is the default constructor for Account class
@@ -101,5 +102,19 @@ public class Account implements Serializable{
     public String toString(){
         String text = "Username: " + username + "\n" + customerInfo.toString();
         return text;
+    }
+
+    /**
+     * @return the balance
+     */
+    public double getBalance() {
+        return balance;
+    }
+
+    /**
+     * @param balance the balance to set
+     */
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }
