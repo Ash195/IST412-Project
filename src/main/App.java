@@ -1,5 +1,6 @@
 package main;
 
+import Controller.LoginCntl;
 import Controller.RegisterCntl;
 import Model.Account;
 import Model.AccountList;
@@ -16,7 +17,7 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        RegisterCntl rg = new RegisterCntl();
+        LoginCntl rg = new LoginCntl();
         System.out.println("");
         System.out.println("Testing customers");
         Customer testCustomer = new Customer("John", "Doe", "testemail@gmail.com", "123-456-7890");

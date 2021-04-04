@@ -3,6 +3,7 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -47,7 +48,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="backBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="checkUsername" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -59,7 +60,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="projectHeader" min="-2" pref="181" max="-2" attributes="0"/>
+                      <Component id="RegisterTitle" min="-2" pref="181" max="-2" attributes="0"/>
                       <Component id="jLayeredPane1" alignment="0" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -70,7 +71,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="projectHeader" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="RegisterTitle" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jLayeredPane1" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -78,7 +79,7 @@
                       <Component id="submitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="clearBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="checkUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="backBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -86,7 +87,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="projectHeader">
+        <Component class="javax.swing.JLabel" name="RegisterTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gulim" size="18" style="1"/>
@@ -105,11 +106,7 @@
         <Component class="javax.swing.JButton" name="clearBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clear"/>
-            <Property name="actionCommand" type="java.lang.String" value="Clear"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Clear"/>
-          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearBtnActionPerformed"/>
           </Events>
@@ -160,22 +157,22 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="dateStartLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="dateStartLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="passwordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="passwordConfirmLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="titleLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="check" min="-2" pref="24" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="password" alignment="0" pref="240" max="32767" attributes="0"/>
-                                      <Component id="password2" max="32767" attributes="0"/>
-                                      <Component id="username" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="passwordField" alignment="0" pref="240" max="32767" attributes="0"/>
+                                      <Component id="passwordConfirmField" max="32767" attributes="0"/>
+                                      <Component id="usernameField" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -187,20 +184,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="titleLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="username" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="check" alignment="1" min="-2" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="userNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="password" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateStartLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="passwordField" min="-2" max="-2" attributes="0"/>
+                              <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="password2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateStartLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="passwordConfirmField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="passwordConfirmLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="charCheck" min="-2" max="-2" attributes="0"/>
@@ -216,13 +215,13 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="titleLabel1">
+                <Component class="javax.swing.JLabel" name="userNameLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="User Name"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="username">
+                <Component class="javax.swing.JTextField" name="usernameField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your username"/>
                   </Properties>
@@ -230,7 +229,7 @@
                     <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Enter your username here"/>
                   </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="password">
+                <Component class="javax.swing.JTextField" name="passwordField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your password"/>
                   </Properties>
@@ -238,7 +237,7 @@
                     <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Enter your password here"/>
                   </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="dateStartLabel2">
+                <Component class="javax.swing.JLabel" name="passwordLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Password"/>
                   </Properties>
@@ -263,12 +262,12 @@
                     <Property name="text" type="java.lang.String" value="Include both lower and uppercase letters"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="password2">
+                <Component class="javax.swing.JTextField" name="passwordConfirmField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your password again"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="dateStartLabel3">
+                <Component class="javax.swing.JLabel" name="passwordConfirmLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Comfim Password"/>
                   </Properties>
@@ -294,24 +293,24 @@
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="dateStartLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lastName" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="lastNameField" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstNameLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="189" max="32767" attributes="0"/>
-                                  <Component id="firstName" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="firstNameField" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="dateStartLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dateEndLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="emalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="160" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="phNumber" pref="240" max="32767" attributes="0"/>
-                                      <Component id="email" max="32767" attributes="0"/>
+                                      <Component id="phoneNumberField" pref="240" max="32767" attributes="0"/>
+                                      <Component id="emailField" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -325,24 +324,24 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  <Component id="dateStartLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="dateStartLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emalLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="dateEndLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="firstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="titleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="firstNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lastName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastNameField" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="email" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailField" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="phNumber" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneNumberField" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -351,58 +350,46 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="titleLabel">
+                <Component class="javax.swing.JLabel" name="firstNameLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="First Name"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="lastName">
+                <Component class="javax.swing.JTextField" name="lastNameField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your last name here"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Enter your last name here"/>
-                  </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="firstName">
+                <Component class="javax.swing.JTextField" name="firstNameField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your first name here"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Enter your first name here"/>
-                  </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="dateStartLabel">
+                <Component class="javax.swing.JLabel" name="lastNameLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Last Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="dateStartLabel1">
+                <Component class="javax.swing.JLabel" name="emalLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Email"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="email">
+                <Component class="javax.swing.JTextField" name="emailField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your email here"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Enter your email here"/>
-                  </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="phNumber">
+                <Component class="javax.swing.JTextField" name="phoneNumberField">
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="Enter your phone number here"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Enter your phone number here"/>
-                  </AccessibilityProperties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phNumberActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneNumberFieldActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="dateEndLabel">
+                <Component class="javax.swing.JLabel" name="phoneNumberLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Phone Number"/>
                     <Property name="toolTipText" type="java.lang.String" value="Enter the date (mm/yy) when you finished your project"/>
@@ -423,13 +410,13 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="backBtn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

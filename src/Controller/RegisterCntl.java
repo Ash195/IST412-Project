@@ -11,6 +11,7 @@ import Model.AccountList;
 import Model.Customer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.scene.Scene;
 
 /**
  *
@@ -18,20 +19,22 @@ import java.awt.event.ActionListener;
  */
 public class RegisterCntl implements ActionListener{
     private RegisterUI regUI;
+    private LoginDataCntl ldc;
     private Account account;
     private AccountList accountList;
     private Customer customer;
+    private LoginCntl loginCntl;
+    
 
-
-    public RegisterCntl() {
-        customer = new Customer();
-        account = new Account();
-        accountList = new AccountList();
-        
-        
+    public RegisterCntl(LoginDataCntl ldc) {
         createRegisterUI();
         regUI.setVisible(true);
-        System.out.println(accountList.getAccountList().toString());
+        
+        this.ldc = ldc;
+        this.account = ldc.getAccount();
+        this.accountList = ldc.getAccountList();
+        this.customer = ldc.getCustomer();
+        System.out.println(accountList.toString());
     }
 
     public void createRegisterUI() {
@@ -39,7 +42,14 @@ public class RegisterCntl implements ActionListener{
         regUI.submitBtn.addActionListener(this);
         regUI.clearBtn.addActionListener(this);
         regUI.checkUsername.addActionListener(this);
+        regUI.backBtn.addActionListener(this);
     }
+    
+    public RegisterUI getRegisterUI() {
+        return regUI;
+    }
+    
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -69,6 +79,12 @@ public class RegisterCntl implements ActionListener{
                 regUI.registerSuccess();
                 accountList.printAccountList();
             }
+        }
+        
+        if(obj == regUI.backBtn){
+            regUI.dispose();
+            loginCntl = new LoginCntl();
+            loginCntl.getLoginUI().toFront();
         }
     }
     
