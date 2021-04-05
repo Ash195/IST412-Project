@@ -46,6 +46,9 @@ public class App {
 //        Loan loan2 = new Loan(LoanType.Personal, 1520, false, 120);
 //        System.out.println(loan2.toString());
         
+        System.out.println();
+        //loan1.pay(25000.0);
+        
         //Transaction testTransaction = new Transaction(testCustomer.getAccounts().get(0), testCustomer2.getAccounts().get(0), 72.50);
 
     }
